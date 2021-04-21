@@ -12,19 +12,15 @@ extern "C" {
 #include <ESPDateTime.h>
 //-------------------------------------------------------- WiFi config --------------------------------------------------------
 // SSID to connect to
-static const char* ssid = "PSU WiFi (802.1x)";
+static const char* ssid = "SSID";
 // Username for authentification
-static const char* username = "5910110177";
+static const char* username = "username";
 // Password for authentification
-static const char* password = "0866900180za!";
+static const char* password = "your password";
 
-// // SSID to connect to
-// static const char* ssid = "ปลื้ม";
-// // Password for authentification
-// static const char* password = "12345678";
 
 //-------------------------------------------------------- Line config --------------------------------------------------------
-#define LINE_TOKEN "T1jU7ZbtQc0qyg9wEzPCnY25zd3gX6uAqRGxSYv5Lhq"
+#define LINE_TOKEN "line key token"
 
 //-------------------------------------------------------- Web/Server address to read/write from --------------------------------------------------------
 const char *host = "172.22.72.166";   //https://circuits4you.com website or IP address of server
@@ -43,7 +39,7 @@ void setupDateTime() { //-------------------------------------------------------
   // กำหนด Line Token
   LINE.setToken(LINE_TOKEN);
   String date = DateTime.toISOString().c_str();
-  String message = "ปลื้ม Connect ";
+  String message = "Connect ";
   LINE.notify(message+date);
 
 }
@@ -112,28 +108,5 @@ void setup() { //--------------------------------------------------------  setup
 } //-------------------------------------------------------- End setup --------------------------------------------------------
 
 void loop() { //-------------------------------------------------------- loop --------------------------------------------------------
-  //  HTTPClient http;    //Declare object of class HTTPClient
-
-  // String ADCData, station, postData;
-  // int adcvalue=analogRead(A0);  //Read Analog value of LDR
-  // ADCData = String(adcvalue);   //String to interger conversion
-  // station = "A";
-
-  // //Post Data
-  // postData = "status=" + ADCData + "&station=" + station ;
-  
-  // http.begin("http://172.22.72.166/");              //Specify request destination
-  // http.addHeader("Content-Type", "application/json");    //Specify content-type header
-
-  // // int httpCode = http.POST(postData);   //Send the request
-  // // String payload = http.getString();    //Get the response payload
-
-  // http.POST("{\"ปลื้ม\"😕"1\"}");
-
-  // // Serial.println(httpCode);   //Print HTTP return code
-  // // Serial.println(payload);    //Print request response payload
-
-  // http.end();  //Close connection
-  
   // delay(10000);  //Post Data at every 10 seconds
 } //-------------------------------------------------------- End loop --------------------------------------------------------
